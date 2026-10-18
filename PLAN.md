@@ -10,6 +10,17 @@ exactly 10 s; 99.98% are 9-13 s; smallest gap 8 s. This contradicts the
 "1 Hz" in SPEC section 1 (SPEC is frozen; not edited).
 Gap pattern: 331 gaps over 60 s, 37 days 21:31:03 in total, largest
 172,918 s (about 48 h). Data runs 2020-02-01 00:00:00 to 2020-09-01 03:59:50.
+Big gaps are spread over every month (36 to 64 per month, Feb-Aug).
+Per day (step 1.3b, missing % = 1 - readings/8,640, clipped at 0; 212 full
+days): 0%: 49, 0-5%: 23, 5-25%: 97, 25-50%: 21, 50-75%: 14, 75-<100%: 6,
+100%: 2. Median 13.9%, mean 17.8%. 49 days exceed 8,640 readings (max 8,717).
+Missing readings: span-based 324,812; gap-based 327,095 (difference explained
+by 9-13 s jitter in the small gaps).
+
+## 2. Continuous vs on/off signals (Stage 1)
+Observation only (step 1.3b): COMP, DV_eletric, Towers, MPG, LPS,
+Pressure_switch, Oil_level, Caudal_impulses each hold exactly two distinct
+values, 0.0 and 1.0, over the whole file. Meanings come from the UCI page.
 
 ## Timestamp timezone assumption (SPEC section 4, Stage 1)
 Fact: timestamps carry no timezone (e.g. 2020-02-01 00:00:00).
