@@ -7,6 +7,9 @@ data/raw/
 # Audit log output (Stage 8)
 audit/
 
+# Local Claude Code settings (per machine, not shared)
+.claude/settings.local.json
+
 # Tool-generated folders
 .venv/
 __pycache__/
