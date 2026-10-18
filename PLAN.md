@@ -17,11 +17,6 @@ days): 0%: 49, 0-5%: 23, 5-25%: 97, 25-50%: 21, 50-75%: 14, 75-<100%: 6,
 Missing readings: span-based 324,812; gap-based 327,095 (difference explained
 by 9-13 s jitter in the small gaps).
 
-## 2. Continuous vs on/off signals (Stage 1)
-Observation only (step 1.3b): COMP, DV_eletric, Towers, MPG, LPS,
-Pressure_switch, Oil_level, Caudal_impulses each hold exactly two distinct
-values, 0.0 and 1.0, over the whole file. Meanings come from the UCI page.
-
 ## Timestamp timezone assumption (SPEC section 4, Stage 1)
 Fact: timestamps carry no timezone (e.g. 2020-02-01 00:00:00).
 Choice (decided 2026-10-19): take timestamps exactly as recorded, naive, with
@@ -32,6 +27,9 @@ in the same zone. Open: the owner checks the paper for which zone it uses.
 
 ## 2. Continuous vs on/off signals (Stage 1)
 Not decided yet.
+Observation only (step 1.3b): COMP, DV_eletric, Towers, MPG, LPS,
+Pressure_switch, Oil_level, Caudal_impulses each hold exactly two distinct
+values, 0.0 and 1.0, over the whole file. Meanings come from the UCI page.
 
 ## 3. Missing-seconds threshold X for skipping a window (Stage 2)
 Not decided yet.
