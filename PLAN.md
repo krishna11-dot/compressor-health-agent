@@ -4,10 +4,12 @@ The owner records the choice and the reason under its heading; nothing is pre-fi
 # PLAN: open decisions
 
 ## 1. Real sampling interval and gap pattern (Stage 1)
-Not decided yet.
-Observation (step 1.1, first 5 data rows only): gaps of 10, 9, 10, 10 s, which
-suggests about 10 s sampling, not the 1 Hz in SPEC. To be confirmed in step 1.2
-over the whole file.
+Choice (decided 2026-10-19): option A, nominal interval 10 s.
+Basis (step 1.2b, whole CSV, 1,516,947 gaps): 1,337,521 gaps (88.2%) are
+exactly 10 s; 99.98% are 9-13 s; smallest gap 8 s. This contradicts the
+"1 Hz" in SPEC section 1 (SPEC is frozen; not edited).
+Gap pattern: 331 gaps over 60 s, 37 days 21:31:03 in total, largest
+172,918 s (about 48 h). Data runs 2020-02-01 00:00:00 to 2020-09-01 03:59:50.
 
 ## Timestamp timezone assumption (SPEC section 4, Stage 1)
 Fact: timestamps carry no timezone (e.g. 2020-02-01 00:00:00).
