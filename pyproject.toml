@@ -19,6 +19,7 @@ strict = true
 
 [dependency-groups]
 dev = [
+    "matplotlib>=3.11.2",
     "mypy>=2.4.0",
     "pandas-stubs>=3.0.5.260914",
     "pytest>=9.1.1",

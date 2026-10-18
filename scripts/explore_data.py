@@ -138,5 +138,33 @@ def print_missing_by_day(readings_per_day: Counter[str],
     print(f"  missing readings summed over full days (clipped): {clipped_sum}")
 
 
+def plot_one_day(csv_path: Path, column: str, day: str, png_path: Path) -> None:
+    import matplotlib
+    matplotlib.use("Agg")  # draw straight to a file, no window
+    import matplotlib.pyplot as plt
+
+    day_chunks = []
+    for chunk in read_csv_in_chunks(csv_path, ROWS_PER_CHUNK):
+        day_chunks.append(chunk[chunk["timestamp"].dt.strftime("%Y-%m-%d") == day])
+    one_day = pd.concat(day_chunks)
+    gaps = one_day["timestamp"].diff().dt.total_seconds()
+    big = one_day[gaps > BIG_GAP_SECONDS]
+    print(f"{day}: {len(one_day)} readings, {column} min {one_day[column].min()} "
+          f"max {one_day[column].max()}, gaps over {BIG_GAP_SECONDS} s: {len(big)}")
+    for _, row in big.iterrows():
+        print(f"  gap ending {row['timestamp']}: {gaps[row.name]:.0f} s")
+
+    figure, axes = plt.subplots(figsize=(14, 4))
+    axes.plot(one_day["timestamp"], one_day[column], linewidth=0.5)
+    axes.set_title(f"{column} on {day} (raw readings, about one every 10 s)")
+    axes.set_xlabel("time of day (as recorded, no timezone conversion)")
+    axes.set_ylabel(f"{column} (unit: see UCI page)")
+    figure.savefig(png_path, dpi=120, bbox_inches="tight")
+    print(f"saved {png_path}")
+
+
 if __name__ == "__main__":
-    main(Path(sys.argv[1]))
+    if len(sys.argv) == 5:  # csv_path column day png_path
+        plot_one_day(Path(sys.argv[1]), sys.argv[2], sys.argv[3], Path(sys.argv[4]))
+    else:
+        main(Path(sys.argv[1]))
