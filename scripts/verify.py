@@ -11,7 +11,7 @@ PYTEST_NO_TESTS_EXIT_CODE = 5
 
 CHECKS = [
     ("ruff", [sys.executable, "-m", "ruff", "check", "."]),
-    ("mypy", [sys.executable, "-m", "mypy", "src", "scripts"]),
+    ("mypy", [sys.executable, "-m", "mypy", "src", "scripts", "tests"]),
     ("pytest", [sys.executable, "-m", "pytest", "-q"]),
 ]
 
