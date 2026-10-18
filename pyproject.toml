@@ -6,7 +6,9 @@ authors = [
     { name = "krishna11-dot", email = "krishnanair041@gmail.com" }
 ]
 requires-python = ">=3.12.10"
-dependencies = []
+dependencies = [
+    "pandas>=3.0.6",
+]
 
 [build-system]
 requires = ["uv_build>=0.13.0,<0.14.0"]
@@ -18,6 +20,7 @@ strict = true
 [dependency-groups]
 dev = [
     "mypy>=2.4.0",
+    "pandas-stubs>=3.0.5.260914",
     "pytest>=9.1.1",
     "ruff>=0.17.1",
 ]
