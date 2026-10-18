@@ -1,26 +1,39 @@
 {
-  "_about": "Meaning, unit and kind of each CSV column. Facts come from the UCI page as read by the owner; nothing is filled from memory. Every entry stays verified:false until the owner confirms it. Columns not listed here are not described yet.",
+  "_about": "Meaning, unit and kind of each signal column, in CSV header order (source_row and timestamp are not signals). Meaning and unit come from the UCI page as supplied by the owner; null means not supplied yet, never filled from memory. kind comes from the data (PLAN.md decision 2). Every entry stays verified:false until the owner confirms it.",
+  "kind_basis": "on_off = exactly two distinct values, 0.0 and 1.0, over the whole CSV (explore_data.py, step 1.3b); continuous = any other column. Owner's rule, 2026-10-19.",
   "signals": {
+    "TP2": {"unit": null, "meaning": null, "kind": "continuous", "source": null, "verified": false},
     "TP3": {
       "unit": "bar",
       "meaning": "pressure generated at the pneumatic panel (system pressure the train uses)",
-      "kind": null,
+      "kind": "continuous",
       "source": "UCI page variable table, as supplied by the owner in chat on 2026-10-19",
       "verified": false
     },
-    "MPG": {
-      "unit": null,
-      "meaning": "starts the compressor under load when pressure drops below 8.2 bar",
-      "kind": null,
-      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
-      "verified": false
-    },
+    "H1": {"unit": null, "meaning": null, "kind": "continuous", "source": null, "verified": false},
+    "DV_pressure": {"unit": null, "meaning": null, "kind": "continuous", "source": null, "verified": false},
+    "Reservoirs": {"unit": null, "meaning": null, "kind": "continuous", "source": null, "verified": false},
+    "Oil_temperature": {"unit": null, "meaning": null, "kind": "continuous", "source": null, "verified": false},
     "Motor_current": {
       "unit": "A",
       "meaning": "motor current; states: about 0 A off, 4 A offloaded, 7 A under load, 9 A starting",
-      "kind": null,
+      "kind": "continuous",
       "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
       "verified": false
-    }
+    },
+    "COMP": {"unit": null, "meaning": null, "kind": "on_off", "source": null, "verified": false},
+    "DV_eletric": {"unit": null, "meaning": null, "kind": "on_off", "source": null, "verified": false},
+    "Towers": {"unit": null, "meaning": null, "kind": "on_off", "source": null, "verified": false},
+    "MPG": {
+      "unit": null,
+      "meaning": "starts the compressor under load when pressure drops below 8.2 bar",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "LPS": {"unit": null, "meaning": null, "kind": "on_off", "source": null, "verified": false},
+    "Pressure_switch": {"unit": null, "meaning": null, "kind": "on_off", "source": null, "verified": false},
+    "Oil_level": {"unit": null, "meaning": null, "kind": "on_off", "source": null, "verified": false},
+    "Caudal_impulses": {"unit": null, "meaning": null, "kind": "on_off", "source": null, "verified": false}
   }
 }

@@ -26,7 +26,11 @@ Reason: SPEC section 4 forbids conversion, and data and failure windows must be
 in the same zone. Open: the owner checks the paper for which zone it uses.
 
 ## 2. Continuous vs on/off signals (Stage 1)
-Not decided yet.
+Choice (decided 2026-10-19): kind comes from the data. on_off = the 8 columns
+with exactly two distinct values (0.0 and 1.0) over the whole CSV; continuous
+= the other 7 (TP2, TP3, H1, DV_pressure, Reservoirs, Oil_temperature,
+Motor_current). Recorded in data/signals.json, all verified:false.
+Reason: the owner's rule; meanings from the UCI page are still to be added.
 Observation only (step 1.3b): COMP, DV_eletric, Towers, MPG, LPS,
 Pressure_switch, Oil_level, Caudal_impulses each hold exactly two distinct
 values, 0.0 and 1.0, over the whole file. Meanings come from the UCI page.
