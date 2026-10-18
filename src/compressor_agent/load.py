@@ -23,3 +23,11 @@ def read_csv_in_chunks(csv_path: Path, rows_per_chunk: int) -> Iterator[pd.DataF
         if first_column != PANDAS_NAME_FOR_UNNAMED_FIRST_COLUMN:
             raise ValueError(f"expected an unnamed first column, got {first_column!r}")
         yield chunk.rename(columns={first_column: SOURCE_ROW})
+
+
+def read_one_day(csv_path: Path, day: str, rows_per_chunk: int) -> pd.DataFrame:
+    """Return only the rows whose timestamp falls on day ("YYYY-MM-DD")."""
+    day_chunks: list[pd.DataFrame] = []
+    for chunk in read_csv_in_chunks(csv_path, rows_per_chunk):
+        day_chunks.append(chunk[chunk["timestamp"].dt.strftime("%Y-%m-%d") == day])
+    return pd.concat(day_chunks, ignore_index=True)
