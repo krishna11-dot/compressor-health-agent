@@ -110,10 +110,12 @@ def print_missing_by_day(readings_per_day: Counter[str],
                          first_time: pd.Timestamp, last_time: pd.Timestamp) -> None:
     all_days = list(pd.date_range(first_time.normalize(), last_time.normalize()).strftime("%Y-%m-%d"))
     first_day, last_day = all_days[0], all_days[-1]
-    full_days = all_days[1:-1]
+    # A day is full when the data covers it from 00:00:00; only the last day is cut short.
+    first_day_is_full = first_time == first_time.normalize()
+    full_days = all_days[:-1] if first_day_is_full else all_days[1:-1]
     print(f"\nmissing % per day (1 - readings / {READINGS_PER_FULL_DAY}, clipped at 0)")
-    print(f"  first day {first_day} (partial, from {first_time.time()}): "
-          f"{readings_per_day[first_day]} readings")
+    print(f"  first day {first_day} ({'full' if first_day_is_full else 'partial'}, "
+          f"from {first_time.time()}): {readings_per_day[first_day]} readings")
     print(f"  last day  {last_day} (partial, to {last_time.time()}): "
           f"{readings_per_day[last_day]} readings")
     over_full = [d for d in full_days if readings_per_day[d] > READINGS_PER_FULL_DAY]
@@ -122,10 +124,14 @@ def print_missing_by_day(readings_per_day: Counter[str],
     missing_pct = pd.Series(
         {d: max(0.0, 100 * (1 - readings_per_day[d] / READINGS_PER_FULL_DAY)) for d in full_days}
     )
-    buckets = pd.cut(missing_pct, bins=[-1, 0, 5, 25, 50, 75, 99.999, 100],
-                     labels=["0%", "0-5%", "5-25%", "25-50%", "50-75%", "75-<100%", "100%"])
+    print(f"  first day missing %: {missing_pct[first_day]:.1f}" if first_day_is_full else "")
+    # Each bucket includes its upper edge: 0-5% means 0 <= missing <= 5.
+    buckets = pd.cut(missing_pct, bins=[-1, 5, 25, 75, 100],
+                     labels=["0-5%", "5-25%", "25-75%", "75-100%"])
     print("  full days by missing %:")
     print(buckets.value_counts(sort=False).to_string())
+    zero_days = [d for d in full_days if missing_pct[d] == 0]
+    print(f"  days with 0% missing ({len(zero_days)}): {', '.join(zero_days)}")
     print(f"  mean missing % over full days: {missing_pct.mean():.1f}")
     print(f"  median missing % over full days: {missing_pct.median():.1f}")
     clipped_sum = sum(max(0, READINGS_PER_FULL_DAY - readings_per_day[d]) for d in full_days)
