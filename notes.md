@@ -23,6 +23,12 @@ Nothing in this file is a decision; decisions go in PLAN.md. -->
 - MPG = 0 at TP3 < 8.2 at 08:21:35; COMP is also 0 and the UCI page says COMP
   follows MPG, so the polarity is unresolved, not necessarily a mismatch.
 
+## Stage 1 review findings (owner, for Stage 2)
+- load.read_one_day returns an empty table for a day with no data, and no
+  test covers that case.
+- load.read_one_day re-reads the whole CSV on every call (about 7-30 s here);
+  too slow if Stage 2 calls it in a loop.
+
 ## Failure windows (data/failure_windows.json, Stage 1)
 - Source is the UCI page's Failure Information table. A failure table for the
   2020 data was not found in the paper; other papers found cover 2022
