@@ -1,0 +1,25 @@
+{
+  "_about": "Where the raw data came from. Values are supplied by the owner from the UCI page; null means not supplied yet. The raw files themselves are never committed (data/raw/ is in .gitignore).",
+  "dataset": "MetroPT-3 Dataset",
+  "source_url": null,
+  "doi": "10.24432/C5VW3R",
+  "doi_note": "confirmed on the UCI page by the owner, 2026-10-19",
+  "licence": "This dataset is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.",
+  "licence_note": "text as read off the UCI page by the owner, 2026-10-19",
+  "download_date": null,
+  "files": [
+    {
+      "path": "data/raw/MetroPT3(AirCompressor).csv",
+      "sha256": "db30ccb4ea402e3c8bf2c99db06e288d4f2a772f6928f9dbe26a920d69793e24",
+      "size_bytes": 218300507,
+      "sha256_note": "computed by the agent and independently matched by the owner with Get-FileHash, 2026-10-19"
+    },
+    {
+      "path": "data/raw/Data Description_Metro.pdf",
+      "sha256": "b00fac0e8899854078309bef4adaa480d82ecf14dc81c5097c3646973e824127",
+      "size_bytes": 81208,
+      "sha256_note": "computed by the agent, 2026-10-19; not yet matched by the owner"
+    }
+  ],
+  "verified": false
+}
