@@ -1,0 +1,15 @@
+# Real data is never committed (SPEC section 4)
+data/raw/
+
+# Secrets
+.env
+
+# Audit log output (Stage 8)
+audit/
+
+# Tool-generated folders
+.venv/
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
