@@ -7,6 +7,9 @@ data/raw/
 # Audit log output (Stage 8)
 audit/
 
+# Stage 1 plot; saved outside the repo, ignored in case it lands here
+one_day_pressure.png
+
 # Local Claude Code settings (per machine, not shared)
 .claude/settings.local.json
 

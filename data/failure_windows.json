@@ -1,0 +1,38 @@
+{
+  "_about": "Documented failure windows (ground truth). Source: UCI page table. A failure table for the 2020 data was not found in the sources checked; the Davari 2021 paper itself has not been checked. Supplied by the owner on 2026-10-19. All verified:false.",
+  "time_format": "YYYY-MM-DD HH:MM, naive, exactly as given on the UCI page; same untouched form as the CSV (PLAN.md timezone decision)",
+  "windows": [
+    {
+      "start": "2020-04-18 00:00",
+      "end": "2020-04-18 23:59",
+      "type": "Air Leak",
+      "citation": "UCI page MetroPT-3, Failure Information table",
+      "note": "end kept as given (23:59); Stage 4 should treat the last minute, 23:59:00-23:59:59, as inside the window",
+      "verified": false
+    },
+    {
+      "start": "2020-05-29 23:30",
+      "end": "2020-05-30 06:00",
+      "type": "Air Leak",
+      "citation": "UCI page MetroPT-3, Failure Information table",
+      "note": "page says \"Maintenance on 30Apr at 12:00\"; probably a typo for 30 May (owner's reading, unconfirmed)",
+      "verified": false
+    },
+    {
+      "start": "2020-06-05 10:00",
+      "end": "2020-06-07 14:30",
+      "type": "Air Leak",
+      "citation": "UCI page MetroPT-3, Failure Information table",
+      "note": "maintenance on 8 Jun 16:00 (UCI page, as supplied by the owner)",
+      "verified": false
+    },
+    {
+      "start": "2020-07-15 14:30",
+      "end": "2020-07-15 19:00",
+      "type": "Air Leak",
+      "citation": "UCI page MetroPT-3, Failure Information table",
+      "note": "maintenance on 16 Jul 00:00 (UCI page, as supplied by the owner)",
+      "verified": false
+    }
+  ]
+}

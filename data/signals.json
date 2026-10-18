@@ -1,0 +1,111 @@
+{
+  "_about": "Meaning, unit and kind of each signal column, in CSV header order (source_row and timestamp are not signals). Meaning and unit come from the UCI page as supplied by the owner; null means not supplied yet, never filled from memory. kind comes from the data (PLAN.md decision 2). Every entry stays verified:false until the owner confirms it.",
+  "kind_basis": "on_off = exactly two distinct values, 0.0 and 1.0, over the whole CSV (explore_data.py, step 1.3b); continuous = any other column. Owner's rule, 2026-10-19.",
+  "signals": {
+    "TP2": {
+      "unit": "bar",
+      "meaning": "pressure on the compressor",
+      "kind": "continuous",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "TP3": {
+      "unit": "bar",
+      "meaning": "pressure generated at the pneumatic panel (system pressure the train uses)",
+      "kind": "continuous",
+      "source": "UCI page variable table, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "H1": {
+      "unit": "bar",
+      "meaning": "pressure from the drop when the cyclonic separator filter discharges",
+      "kind": "continuous",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "DV_pressure": {
+      "unit": "bar",
+      "meaning": "pressure drop when the air-dryer towers discharge; zero means the compressor is under load",
+      "kind": "continuous",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "Reservoirs": {
+      "unit": "bar",
+      "meaning": "downstream pressure of the reservoirs, close to TP3",
+      "kind": "continuous",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "Oil_temperature": {
+      "unit": "°C",
+      "meaning": "oil temperature on the compressor",
+      "kind": "continuous",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "Motor_current": {
+      "unit": "A",
+      "meaning": "motor current; states: about 0 A off, 4 A offloaded, 7 A under load, 9 A starting",
+      "kind": "continuous",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "COMP": {
+      "unit": null,
+      "meaning": "electrical signal of the air intake valve; active when there is no air intake (compressor off or offloaded)",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "DV_eletric": {
+      "unit": null,
+      "meaning": "signal controlling the compressor outlet valve; active when under load. Name note: CSV spelling; the page says \"DV electric\"",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "Towers": {
+      "unit": null,
+      "meaning": "which air-drying tower is in use (inactive = tower 1, active = tower 2)",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "MPG": {
+      "unit": null,
+      "meaning": "starts the compressor under load when pressure drops below 8.2 bar",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "LPS": {
+      "unit": null,
+      "meaning": "activates when pressure drops below 7 bar",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "Pressure_switch": {
+      "unit": null,
+      "meaning": "detects discharge in the air-drying towers",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "Oil_level": {
+      "unit": null,
+      "meaning": "active when the oil is below expected values",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "Caudal_impulses": {
+      "unit": null,
+      "meaning": "counts pulses of air flowing from the APU to the reservoirs",
+      "kind": "on_off",
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    }
+  }
+}
