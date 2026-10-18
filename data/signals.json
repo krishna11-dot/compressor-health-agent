@@ -1,0 +1,26 @@
+{
+  "_about": "Meaning, unit and kind of each CSV column. Facts come from the UCI page as read by the owner; nothing is filled from memory. Every entry stays verified:false until the owner confirms it. Columns not listed here are not described yet.",
+  "signals": {
+    "TP3": {
+      "unit": "bar",
+      "meaning": "pressure generated at the pneumatic panel (system pressure the train uses)",
+      "kind": null,
+      "source": "UCI page variable table, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "MPG": {
+      "unit": null,
+      "meaning": "starts the compressor under load when pressure drops below 8.2 bar",
+      "kind": null,
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    },
+    "Motor_current": {
+      "unit": "A",
+      "meaning": "motor current; states: about 0 A off, 4 A offloaded, 7 A under load, 9 A starting",
+      "kind": null,
+      "source": "UCI page, as supplied by the owner in chat on 2026-10-19",
+      "verified": false
+    }
+  }
+}
