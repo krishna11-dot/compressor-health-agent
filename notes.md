@@ -20,6 +20,24 @@ Nothing in this file is a decision; decisions go in PLAN.md. -->
   active = oil low, so check whether active means 0 or the description is
   wrong (paper/UCI). Note for Stage 2: Oil_level is constant in Feb, the
   suggested training month, so normalization must handle zero variance.
+
+## Failure windows (data/failure_windows.json, Stage 1)
+- Source is the UCI page's Failure Information table. A failure table for the
+  2020 data was not found in the paper; other papers found cover 2022
+  datasets and were not used. Open: SPEC section 1 names the paper as Veloso
+  et al., Scientific Data 9, 764 (2022), while _about names "the Davari 2021
+  paper"; settle which paper was checked.
+- The UCI table has two rows labelled #1.
+- Page row 1 spells the type "Air leak"; all four are normalized to
+  "Air Leak" in the JSON.
+- Window #2's maintenance note says "30Apr at 12:00"; probably a typo for
+  30 May. Kept as on the page.
+- Window #1 ends at 23:59 as given; Stage 4 should treat the last minute
+  (23:59:00-23:59:59) as inside the window.
+- For Stage 4: the 24 h before #1 is 27.1% missing (largest gap 14,092 s,
+  3.9 h) and before #4 is 28.4% missing (largest gap 25,085 s, 7.0 h), so lead
+  time there can be cut short by holes. Window #3 itself has a 13,622 s
+  (3.8 h) gap inside it.
 - SPEC.md section 8 says Windows 11; this machine is Windows 10 Home
   (build 19045). Noted in Stage 0; no change made because SPEC.md is frozen.
 - ruff runs with the default rule set of ruff 0.17.1 (407 rules, no
