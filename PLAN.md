@@ -10,8 +10,12 @@ suggests about 10 s sampling, not the 1 Hz in SPEC. To be confirmed in step 1.2
 over the whole file.
 
 ## Timestamp timezone assumption (SPEC section 4, Stage 1)
-Not decided yet. Fact: timestamps carry no timezone (e.g. 2020-02-01 00:00:00).
-SPEC section 4 already fixes: no timezone conversion.
+Fact: timestamps carry no timezone (e.g. 2020-02-01 00:00:00).
+Choice (decided 2026-10-19): take timestamps exactly as recorded, naive, with
+no timezone conversion. The paper's failure windows are compared in the same
+untouched form.
+Reason: SPEC section 4 forbids conversion, and data and failure windows must be
+in the same zone. Open: the owner checks the paper for which zone it uses.
 
 ## 2. Continuous vs on/off signals (Stage 1)
 Not decided yet.
