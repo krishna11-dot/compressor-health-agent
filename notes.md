@@ -20,6 +20,8 @@ Nothing in this file is a decision; decisions go in PLAN.md. -->
   active = oil low, so check whether active means 0 or the description is
   wrong (paper/UCI). Note for Stage 2: Oil_level is constant in Feb, the
   suggested training month, so normalization must handle zero variance.
+- MPG = 0 at TP3 < 8.2 at 08:21:35; COMP is also 0 and the UCI page says COMP
+  follows MPG, so the polarity is unresolved, not necessarily a mismatch.
 
 ## Failure windows (data/failure_windows.json, Stage 1)
 - Source is the UCI page's Failure Information table. A failure table for the
